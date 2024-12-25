@@ -40,7 +40,11 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-gradient-to-br from-yellow-100 to-bg-[#FEFCE8] backdrop-blur-2xl opacity-96 z-50">
+    <header className={`fixed top-0 left-0 right-0 z-50 ${
+      isMenuOpen 
+        ? 'bg-yellow-100' 
+        : 'bg-gradient-to-br from-yellow-100 to-bg-[#FEFCE8] backdrop-blur-2xl opacity-97'
+    }`}>
       <nav className="container mx-auto">
         <div className="flex items-center justify-between px-4 sm:px-6 h-24 sm:h-28 lg:h-32">
           {/* Logo */}
@@ -48,7 +52,7 @@ const Header: React.FC = () => {
             <img
               src={logo}
               alt="IconicMe Logo"
-              className="h-32 sm:h-40 lg:h-56 w-auto object-contain "
+              className="h-32 sm:h-40 lg:h-56 w-auto object-contain -mt-4"
             />
           </Link>
 
@@ -92,7 +96,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-gradient-to-br from-yellow-100 to-bg-[#FEFCE8] border-t border-yellow-200 py-4 px-6 shadow-lg">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-yellow-100 border-t border-yellow-200 py-4 px-6 shadow-lg">
             <div className="flex flex-col space-y-4">
               <button
                 onClick={() => handleScrollToSection('products')}
